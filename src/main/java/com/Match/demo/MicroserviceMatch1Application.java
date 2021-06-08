@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Bean;
 import com.Match.demo.match.Match;
 import com.Match.demo.repository.MatchRepository;
 
+import java.time.LocalDate;
+
 @SpringBootApplication
 public class MicroserviceMatch1Application {
 
@@ -19,10 +21,11 @@ public class MicroserviceMatch1Application {
 	CommandLineRunner initDatabaseH2(MatchRepository matchRepository) {
 		return args->{
 						//Date d1 =new Date();
-		            	matchRepository.save(new Match(Long.parseLong("1") , "Rabat" ,"Match_officiel"));
-                        matchRepository.save(new Match(Long.parseLong("2") , "Marrakech" ,"Match_amical"));
-                        matchRepository.save(new Match(Long.parseLong("3") , "le grand stad de Rabat" ,"Match_tournoi"));
-                        matchRepository.save(new Match(Long.parseLong("4") , "CasaBlanca" ,"Match_coupe"));
+		            	matchRepository.save(new Match(LocalDate.of(2021,1,1), "Rabat" , Match.Type.amical , Match.Categorie.U8, "KACM"));
+		            	//matchRepository.save(new Match("22/01/2021", "Marrakech" , Match.Type.Coupe , Match.Categirie.U10));
+		            	//matchRepository.save(new Match("22/01/2021", "Casablanca" , Match.Type.Ligue , Match.Categirie.U12));
+		            	// matchRepository.save(new Match("22/01/2021", "safi" , Match.Type.amical , Match.Categirie.U8));
+		            	//matchRepository.save(new Match("22/01/2021", "tanger" , Match.Type.amical , Match.Categirie.U6));
 		} ;
 
 	}
